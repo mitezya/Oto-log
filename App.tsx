@@ -53,7 +53,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#F8F5F2] text-[#4A4A4A]">
       <header className="p-6 border-b border-gray-200/80 flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0 z-20">
-        <h1 className="text-3xl font-serif text-[#3A3A3A] cursor-pointer" onClick={handleCloseFlows}>メモリーミュージックシェルフ</h1>
+        <h1 className="text-3xl text-[#3A3A3A] cursor-pointer" onClick={handleCloseFlows}>音の本棚</h1>
         {currentView === 'bookshelf' && (
              <button
                 onClick={handleAddSongClick}
@@ -68,7 +68,7 @@ const App: React.FC = () => {
         {renderView()}
       </main>
       <footer className="text-center p-4 text-xs text-gray-400">
-        <p>&copy; 2024 メモリーミュージックシェルフ。音楽であなただけの物語を。</p>
+        <p>&copy; 2024 音の本棚。音楽であなただけの物語を。</p>
       </footer>
     </div>
   );

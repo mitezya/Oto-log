@@ -137,7 +137,7 @@ const AddSongFlow: React.FC<AddSongFlowProps> = ({ onSave, onCancel }) => {
   const renderDetailsStep = () => (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-serif font-bold text-gray-800">新しい思い出を追加</h2>
+        <h2 className="text-2xl font-bold text-gray-800">新しい思い出を追加</h2>
         <p className="text-gray-500 mt-1">まず、曲の詳細情報を入力しましょう。</p>
       </div>
       <div className="space-y-4">
@@ -162,7 +162,7 @@ const AddSongFlow: React.FC<AddSongFlowProps> = ({ onSave, onCancel }) => {
 
   const renderChatStep = () => (
     <div className="flex flex-col h-full">
-      <h2 className="text-2xl font-serif font-bold text-gray-800 mb-4">AIインタビュー</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">AIインタビュー</h2>
       <div ref={chatContainerRef} className="flex-grow bg-gray-50 p-4 rounded-lg overflow-y-auto mb-4 h-96 border">
         {chatHistory.map((msg, index) => (
           <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} mb-3`}>
@@ -184,15 +184,22 @@ const AddSongFlow: React.FC<AddSongFlowProps> = ({ onSave, onCancel }) => {
         />
         <button onClick={handleSendMessage} disabled={isAiTyping || !userInput} className="bg-[#8B5CF6] text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-[#7C3AED] transition-all disabled:bg-gray-400">送信</button>
       </div>
-       <button onClick={handleGenerateSummary} disabled={chatHistory.length < 2 || isAiTyping} className="w-full mt-4 bg-green-500 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-green-600 transition-all disabled:bg-gray-400">
-        完了して要約
+       <button onClick={handleGenerateSummary} disabled={chatHistory.length < 2 || isAiTyping || isSummarizing} className="w-full mt-4 bg-green-500 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-green-600 transition-all disabled:bg-gray-400 flex items-center justify-center">
+        {isSummarizing ? (
+          <>
+            <SparklesIcon className="w-5 h-5 mr-2 animate-pulse" />
+            要約中...
+          </>
+        ) : (
+          "完了して要約"
+        )}
       </button>
     </div>
   );
 
   const renderSummaryStep = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-serif font-bold text-gray-800">思い出の要約</h2>
+      <h2 className="text-2xl font-bold text-gray-800">思い出の要約</h2>
        {isSummarizing ? (
            <div className="text-center py-10">
                <SparklesIcon className="w-12 h-12 text-[#8B5CF6] mx-auto animate-pulse" />

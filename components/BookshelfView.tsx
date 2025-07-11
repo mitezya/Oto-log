@@ -17,8 +17,8 @@ const Book: React.FC<BookProps> = ({ song, onSelect }) => (
       {/* Spine */}
       <div className="absolute top-0 left-0 w-[60px] h-full bg-[#3a3a3a] transform-origin-left transform-rotate-y-0 text-white flex flex-col justify-between p-2 shadow-lg"
            style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${song.coverArtUrl})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="[writing-mode:vertical-rl] rotate-180 text-center font-bold text-sm drop-shadow-lg">{song.title}</div>
-        <div className="[writing-mode:vertical-rl] rotate-180 text-center text-xs opacity-80 drop-shadow-md">{song.artist}</div>
+        <div className="[writing-mode:vertical-rl] text-center font-bold text-sm drop-shadow-lg">{song.title}</div>
+        <div className="[writing-mode:vertical-rl] text-center text-xs opacity-80 drop-shadow-md">{song.artist}</div>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ const BookshelfView: React.FC<BookshelfViewProps> = ({ bookshelf, onSelectSong, 
 
       {bookshelf.length === 0 ? (
         <div className="text-center py-20 px-6 bg-white/60 rounded-xl shadow-sm">
-            <h2 className="text-2xl font-serif font-bold text-gray-700 mb-4">本棚は空です</h2>
+            <h2 className="text-2xl font-bold text-gray-700 mb-4">本棚は空です</h2>
             <p className="text-gray-500 mb-8">曲と思い出を追加して、コレクションを始めましょう。</p>
             <button
                 onClick={onAddSongClick}

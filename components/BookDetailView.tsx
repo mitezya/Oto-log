@@ -44,7 +44,7 @@ const BookDetailView: React.FC<BookDetailViewProps> = ({ song, onClose, onDelete
                 <button onClick={onClose} className="absolute top-0 right-0 text-gray-400 hover:text-gray-700">
                     <CloseIcon className="w-7 h-7" />
                 </button>
-                <h4 className="text-lg font-serif font-bold text-[#8B5CF6] mb-2">私の思い出</h4>
+                <h4 className="text-lg font-bold text-[#8B5CF6] mb-2">私の思い出</h4>
                 <div className="prose max-w-none text-gray-700 bg-white/50 p-4 rounded-md border-l-4 border-[#8B5CF6]/50">
                    <p className="whitespace-pre-wrap">{song.summary}</p>
                 </div>
@@ -60,7 +60,7 @@ const BookDetailView: React.FC<BookDetailViewProps> = ({ song, onClose, onDelete
 
                 <div className="mt-8">
                     <details>
-                        <summary className="font-bold text-gray-600 cursor-pointer hover:text-gray-800">AIインタビュー全文を表示</summary>
+                        <summary className="text-gray-600 cursor-pointer hover:text-gray-800">AIインタビュー全文を表示</summary>
                         <div className="mt-2 p-4 bg-gray-50 rounded-lg max-h-60 overflow-y-auto border text-sm">
                             {song.chatHistory.map((msg, index) => (
                                 <div key={index} className={`mb-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
