@@ -10,8 +10,8 @@ if (!API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
-const chatModel = 'gemini-2.5-flash';
-const summaryModel = 'gemini-2.5-flash';
+const chatModel = 'gemini-1.5-flash';
+const summaryModel = 'gemini-1.5-flash';
 
 export const startChat = (songTitle: string, artist: string): Chat => {
   const systemInstruction = `あなたは「オト」という名前の、共感的で好奇心旺盛なインタビュアーです。あなたの目的は、ユーザーが${artist}の「${songTitle}」という曲にまつわる個人的な思い出や感情を深く探求する手助けをすることです。自由回答形式の、掘り下げるような質問を投げかけ、ユーザーが自分の物語を言葉にできるよう優しく導いてください。会話の始めに、その曲との最初の出会いについて尋ねてください。返答は簡潔で、会話のような口調を保ってください。`;
